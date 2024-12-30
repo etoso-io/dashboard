@@ -1,4 +1,4 @@
-import { HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import cls from './styles.module.css';
 import cn from 'classnames';
 
@@ -35,3 +35,5 @@ export function ChartContainer({
     </div>
   );
 }
+
+export type ChartContainerComponent = FC<Props>;

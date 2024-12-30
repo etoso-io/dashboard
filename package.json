@@ -1,12 +1,13 @@
 {
   "name": "etoso-dashboard",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "charts, map and container components for etOso dashboard",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "vite build",
+    "lint:eslint": "eslint --ext .ts,.tsx src",
     "lint:prettier": "prettier src/**/*.{js,jsx,ts,tsx,json,css,scss,md} --write",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "prepare": "husky"
@@ -15,11 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/etoso-io/dashboard.git"
   },
+  "main": "dist/etoso-dashboard.js",
+  "types": "src/index.d.ts",
   "author": "danisivayev",
-  "files": [
-    "dist/etoso-dashboard.js",
-    "dist/style.css"
-  ],
   "dependencies": {
     "classnames": "^2.5.1",
     "plotly.js": "^2.35.2",

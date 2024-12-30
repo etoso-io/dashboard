@@ -1,6 +1,7 @@
 import { TopicMention } from './types';
 import cls from './styles.module.css';
 import { TopicMentionCard } from '../TopicMentionCard/TopicMentionCard';
+import { FC } from 'react';
 
 type Props = {
   topicMentions: TopicMention[];
@@ -23,3 +24,5 @@ export function TopicMentions({ onClick, topicMentions, selected }: Props) {
     </div>
   );
 }
+
+export type TopicMentionsComponent = FC<Props>;

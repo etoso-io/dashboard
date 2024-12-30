@@ -1,6 +1,6 @@
 import { sortBy } from '@/utils/sortBy';
 import { IndustryData } from './types';
-import { CSSProperties, useCallback, useMemo } from 'react';
+import { CSSProperties, FC, useCallback, useMemo } from 'react';
 import { PlotHoverEvent, PlotMouseEvent } from 'plotly.js';
 import { CONTAINER_ID, CUSTOM_LABEL_WIDTH } from './constants';
 import cls from './styles.module.css';
@@ -151,11 +151,11 @@ export function IndustriesChart({ industryData, onBarClick, shownIndustries = 10
 
   const height = useMemo(() => {
     return 180 + 451 * (counts.length / shownIndustries);
-  }, [counts]);
+  }, [counts, shownIndustries]);
 
   const width = useMemo(() => {
     return 0.79;
-  }, [shownIndustries]);
+  }, []);
 
   return (
     <div
@@ -234,3 +234,5 @@ export function IndustriesChart({ industryData, onBarClick, shownIndustries = 10
     </div>
   );
 }
+
+export type IndustriesChartComponent = FC<Props>;
