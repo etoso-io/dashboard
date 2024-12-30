@@ -1,5 +1,5 @@
 {
-  "name": "@danisivayev/etoso-dashboard",
+  "name": "etoso-dashboard",
   "version": "1.0.0",
   "description": "charts, map and container components for etOso dashboard",
   "type": "module",
@@ -16,9 +16,10 @@
     "url": "git+https://github.com/etoso-io/dashboard.git"
   },
   "author": "danisivayev",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
+  "files": [
+    "dist/etoso-dashboard.js",
+    "dist/style.css"
+  ],
   "dependencies": {
     "classnames": "^2.5.1",
     "plotly.js": "^2.35.2",
