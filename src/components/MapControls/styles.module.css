@@ -1,0 +1,29 @@
+.controls {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+}
+
+.controlBtn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid #dde2e4;
+  background-color: #fff;
+  cursor: pointer;
+  &.left {
+    border-radius: 8px 0 0 8px;
+  }
+
+  &.right {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+  }
+}

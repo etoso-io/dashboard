@@ -1,0 +1,55 @@
+.card {
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  border: 1px solid #dde2e4;
+  background-color: transparent;
+  color: #2a204d;
+  user-select: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  &[data-selected='true'] {
+    border: 1px solid #2a204d;
+    background-color: #2a204d;
+    color: #fff;
+  }
+
+  &:hover ~ .tooltip {
+    opacity: 1;
+  }
+}
+
+.tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  left: 50%;
+  top: -7px;
+  padding: 10px;
+  background-color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  font-family: Poppins, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  box-shadow:
+    0px 8.83px 17.67px 0px #5b68713d,
+    0px 0px 1.1px 0px #1a202452;
+  pointer-events: none;
+  border-radius: 4.5px;
+  color: #2a204d;
+  text-transform: capitalize;
+  white-space: nowrap;
+
+  &::after {
+    position: absolute;
+    left: calc(50% - 11px);
+    margin-top: 5px;
+    display: block;
+    transform: translateX(50%);
+    content: url('data:image/svg+xml,%3Csvg%20width=%2212%22%20height=%227%22%20viewBox=%220%200%2012%207%22%20fill=%22none%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%0A%3Cpath%20d=%22M5.58335%206.62512L11.1042%200.000103951H0.0625L5.58335%206.62512Z%22%20fill=%22white%22/%3E%0A%3C/svg%3E%0A');
+  }
+}
