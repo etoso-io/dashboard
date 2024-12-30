@@ -1,6 +1,6 @@
 import { PlotHoverEvent, PlotMouseEvent } from 'plotly.js';
 import { StandardData, StandardWithYear } from './types';
-import { useMemo, useCallback, useRef, useState, CSSProperties, FC } from 'react';
+import React, { useMemo, useCallback, useRef, useState, CSSProperties, FC } from 'react';
 import { createPortal } from 'react-dom';
 import Plot from 'react-plotly.js';
 import cls from './styles.module.css';

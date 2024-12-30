@@ -1,4 +1,4 @@
-import { ChloropethMap } from '@/components/ChloropethMap/ChloropethMap';
+import { ChloropethMap } from '../components/ChloropethMap/ChloropethMap';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 

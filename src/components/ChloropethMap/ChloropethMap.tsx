@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import cls from './styles.module.css';
 import Plot from 'react-plotly.js';
 import { CountryData, GeoCoords } from './types';

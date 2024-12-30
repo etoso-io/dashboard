@@ -1,11 +1,11 @@
 import { TopicMention } from './types';
 import cls from './styles.module.css';
 import { TopicMentionCard } from '../TopicMentionCard/TopicMentionCard';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 type Props = {
   topicMentions: TopicMention[];
-  onClick: (topicMentionValue: string) => void;
+  onClick: (topicMentionValue: string) => () => void;
   selected?: string;
 };
 
@@ -18,7 +18,7 @@ export function TopicMentions({ onClick, topicMentions, selected }: Props) {
           count={tm.count}
           name={tm.topicMentionValue}
           isSelected={selected === tm.topicMentionValue}
-          onClick={() => onClick(tm.topicMentionValue)}
+          onClick={onClick(tm.topicMentionValue)}
         />
       ))}
     </div>

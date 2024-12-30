@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'react';
-import Home from '@/components/MapControls/assets/map-home.svg?react';
+import React, { HTMLAttributes } from 'react';
+import Home from './assets/map-home.svg?react';
 import Plus from './assets/map-zoom-in.svg?react';
 import Minus from './assets/map-zoom-out.svg?react';
 import cls from './styles.module.css';

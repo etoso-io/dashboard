@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
+import React, { FC, HTMLAttributes, PropsWithChildren, ReactNode } from 'react';
 import cls from './styles.module.css';
 import cn from 'classnames';
 

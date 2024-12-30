@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import React, { HTMLAttributes } from 'react';
 import cls from './styles.module.css';
 import cn from 'classnames';
 

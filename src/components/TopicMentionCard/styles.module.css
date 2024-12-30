@@ -1,3 +1,10 @@
+.tooltipWrapper {
+  position: relative;
+  &:hover .tooltip {
+    opacity: 1;
+  }
+}
+
 .card {
   border-radius: 4px;
   padding: 5px 8px;
@@ -16,17 +23,13 @@
     background-color: #2a204d;
     color: #fff;
   }
-
-  &:hover ~ .tooltip {
-    opacity: 1;
-  }
 }
 
 .tooltip {
   position: absolute;
   transform: translate(-50%, -100%);
   left: 50%;
-  top: -7px;
+  top: -12px;
   padding: 10px;
   background-color: #fff;
   opacity: 0;

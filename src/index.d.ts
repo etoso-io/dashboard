@@ -7,5 +7,6 @@ import type { TopicMentionsComponent } from './components/TopicMentions/TopicMen
 export declare const ChartContainer: ChartContainerComponent;
 export declare const ChloropethMap: ChloropethMapComponent;
 export declare const IndustriesChart: IndustriesChartComponent;
-export declare const StandartsChart: StandardsChartComponent;
+export declare const StandardsChart: StandardsChartComponent;
 export declare const TopicMentions: TopicMentionsComponent;
+export declare const GridContainer: ChartContainerComponent;

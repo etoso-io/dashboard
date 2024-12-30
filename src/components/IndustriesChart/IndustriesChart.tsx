@@ -1,6 +1,5 @@
-import { sortBy } from '@/utils/sortBy';
 import { IndustryData } from './types';
-import { CSSProperties, FC, useCallback, useMemo } from 'react';
+import React, { CSSProperties, FC, useCallback, useMemo } from 'react';
 import { PlotHoverEvent, PlotMouseEvent } from 'plotly.js';
 import { CONTAINER_ID, CUSTOM_LABEL_WIDTH } from './constants';
 import cls from './styles.module.css';
@@ -11,6 +10,13 @@ type Props = {
   onBarClick: (data: IndustryData) => void;
   shownIndustries?: number;
 };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function sortBy(arr: any[], key: string) {
+  return [...arr].sort((item1, item2) =>
+    item1[key] > item2[key] ? 1 : item2[key] > item1[key] ? -1 : 0,
+  );
+}
 
 const appendLabels = (node: HTMLElement) => {
   const customLabelsToRemove = node.querySelectorAll('.__customIndustryLabel');
@@ -86,7 +92,9 @@ const getTruncatedText = (labelNode: Element, lineClamp: number) => {
 };
 
 const appendFakeLabel = (node: HTMLElement) => {
-  const customLabelsToRemove = document.querySelectorAll('.__customFakeIndustryLabel.tooltipBase');
+  const customLabelsToRemove = document.querySelectorAll(
+    `.__customFakeIndustryLabel.${cls.tooltipBase}`,
+  );
   for (const el of customLabelsToRemove) {
     el.remove();
   }

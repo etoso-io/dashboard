@@ -51,7 +51,7 @@
     font-weight: 400;
     line-height: 14px;
     &.hidden {
-      opacity: 0;
+      visibility: hidden;
     }
   }
 }

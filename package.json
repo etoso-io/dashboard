@@ -1,12 +1,13 @@
 {
   "name": "etoso-dashboard",
-  "version": "1.0.3",
+  "version": "1.0.13",
   "description": "charts, map and container components for etOso dashboard",
   "type": "module",
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "build": "vite build",
+    "build": "tsc && vite build",
+    "publish": "npm run build && npm publish --access=public",
     "lint:eslint": "eslint --ext .ts,.tsx src",
     "lint:prettier": "prettier src/**/*.{js,jsx,ts,tsx,json,css,scss,md} --write",
     "lint": "npm run lint:eslint && npm run lint:prettier",
@@ -22,9 +23,13 @@
   "dependencies": {
     "classnames": "^2.5.1",
     "plotly.js": "^2.35.2",
-    "react": "18.2",
-    "react-dom": "18.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-plotly.js": "^2.6.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
@@ -56,6 +61,7 @@
     "storybook": "^8.4.7",
     "typescript": "^4.9.5",
     "vite": "^5.4.11",
+    "vite-plugin-lib-inject-css": "^2.2.0",
     "vite-plugin-svgr": "^4.2.0"
   },
   "eslintConfig": {
