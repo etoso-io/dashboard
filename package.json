@@ -1,6 +1,6 @@
 {
   "name": "etoso-dashboard",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "charts, map and container components for etOso dashboard",
   "type": "module",
   "scripts": {

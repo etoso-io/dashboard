@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type Plotly from './plotly.d.ts';
+
 import type { ChartContainerComponent } from './components/ChartContainer/ChartContainer';
 import type { ChloropethMapComponent } from './components/ChloropethMap/ChloropethMap';
 import type { IndustriesChartComponent } from './components/IndustriesChart/IndustriesChart';
