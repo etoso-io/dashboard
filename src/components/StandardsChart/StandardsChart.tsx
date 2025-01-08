@@ -155,7 +155,7 @@ export function StandardsChart({ onBarClick, selectedIds, standardsData }: Props
               show: true,
               color: barColors[ogData.standardName],
               count: ogData.count,
-              name: ogData.standardName,
+              name: ogData.standardFullName,
               x: mouseEvent.clientX + window.scrollX,
               y: mouseEvent.clientY + window.scrollY,
             });

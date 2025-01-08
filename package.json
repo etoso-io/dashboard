@@ -1,6 +1,6 @@
 {
   "name": "etoso-dashboard",
-  "version": "1.0.16",
+  "version": "1.0.18",
   "description": "charts, map and container components for etOso dashboard",
   "type": "module",
   "scripts": {
@@ -47,6 +47,7 @@
     "@types/react-dom": "^19.0.2",
     "@types/react-plotly.js": "^2.6.3",
     "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.19.1",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.2",
