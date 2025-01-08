@@ -4,7 +4,7 @@
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-
+  z-index: 500;
   & :global(.plot-container.plotly) {
     margin-left: -189px;
     .geolayer {
