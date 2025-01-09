@@ -56,7 +56,6 @@ export function ChloropethMap({
   };
 
   const onResetMap = () => {
-    handleClickModbarBtn('Reset view')();
     setCenter(DEFAULT_GEO_COORDS);
     setZoom(1);
   };
