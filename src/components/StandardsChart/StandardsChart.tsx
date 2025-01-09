@@ -9,6 +9,7 @@ type Props = {
   standardsData: StandardWithYear[];
   onBarClick: (data: StandardData) => void;
   selectedIds: number[];
+  standardColorMap?: Record<string, string>;
 };
 
 const barColors: Record<string, string> = {
@@ -65,7 +66,12 @@ const appendLabels = (node: HTMLElement) => {
   }
 };
 
-export function StandardsChart({ onBarClick, selectedIds, standardsData }: Props) {
+export function StandardsChart({
+  onBarClick,
+  selectedIds,
+  standardsData,
+  standardColorMap = barColors,
+}: Props) {
   const standardsByYear: Record<string, StandardData[]> = useMemo(() => {
     return standardsData.reduce((acc, data) => ({ ...acc, [data.year]: data.values }), {});
   }, [standardsData]);
@@ -153,7 +159,7 @@ export function StandardsChart({ onBarClick, selectedIds, standardsData }: Props
             const mouseEvent = e.event as unknown as MouseEvent;
             setTooltipData({
               show: true,
-              color: barColors[ogData.standardName],
+              color: standardColorMap[ogData.standardName],
               count: ogData.count,
               name: ogData.standardFullName,
               x: mouseEvent.clientX + window.scrollX,
@@ -215,7 +221,7 @@ export function StandardsChart({ onBarClick, selectedIds, standardsData }: Props
           text: s,
           insidetextanchor: 'start',
           marker: {
-            color: barColors[s] ?? otherColor,
+            color: standardColorMap[s] ?? otherColor,
             line: {
               color: 'white',
               width: 2,

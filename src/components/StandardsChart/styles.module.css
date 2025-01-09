@@ -55,7 +55,7 @@
   }
 }
 
-.standardData {
+.tooltipStandardData {
   display: flex;
   align-items: center;
   gap: 4px;

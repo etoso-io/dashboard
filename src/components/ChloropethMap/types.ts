@@ -9,4 +9,10 @@ export type GeoCoords = {
   lon: number;
 };
 
+export type ModbarButtons = {
+  zoomIn: Element;
+  zoomOut: Element;
+  resetView: Element;
+};
+
 export type IndexedCountries = Record<string, CountryData>;

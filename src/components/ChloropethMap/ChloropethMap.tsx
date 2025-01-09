@@ -1,7 +1,7 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import cls from './styles.module.css';
 import Plot from 'react-plotly.js';
-import { CountryData, GeoCoords } from './types';
+import { CountryData, GeoCoords, ModbarButtons } from './types';
 import { CONTAINER_ID, DEFAULT_GEO_COORDS, DEFAULT_INDEXED_COUTRIES } from './constants';
 import geojson from './world-administrative-boundaries.json';
 import { MapControls } from '../MapControls/MapControls';
@@ -14,18 +14,6 @@ type Props = {
   resetSelectedCountry: () => void;
 };
 
-const handleClickModbarBtn = (name: string) => () => {
-  const btn = document.querySelector(`[data-title="${name}"]`);
-  if (btn) {
-    const e = new MouseEvent('click', {
-      view: window,
-      bubbles: true,
-      cancelable: true,
-    });
-    btn.dispatchEvent(e);
-  }
-};
-
 export function ChloropethMap({
   countryData,
   onCountryClick,
@@ -35,6 +23,27 @@ export function ChloropethMap({
 }: Props) {
   const [center, setCenter] = useState<GeoCoords>(DEFAULT_GEO_COORDS);
   const [zoom, setZoom] = useState<number>(1);
+  const [buttons, setButtons] = useState<null | ModbarButtons>(null);
+
+  const handleClickModbarBtn = (name: keyof ModbarButtons) => () => {
+    if (buttons) {
+      const e = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+      });
+      buttons[name].dispatchEvent(e);
+    }
+  };
+
+  useEffect(() => {
+    const zoomIn = document.querySelector(`[data-title="Zoom in"]`);
+    const zoomOut = document.querySelector(`[data-title="Zoom out"]`);
+    const resetView = document.querySelector(`[data-title="Reset view"]`);
+    if (zoomIn && zoomOut && resetView) {
+      setButtons({ zoomIn, zoomOut, resetView });
+    }
+  }, []);
 
   const countryMapWithData = useMemo(() => {
     const res = { ...indexedCountries };
@@ -56,6 +65,7 @@ export function ChloropethMap({
   };
 
   const onResetMap = () => {
+    handleClickModbarBtn('resetView')();
     setCenter(DEFAULT_GEO_COORDS);
     setZoom(1);
   };
@@ -109,7 +119,9 @@ export function ChloropethMap({
           config={{
             doubleClick: false,
             scrollZoom: true,
+            modeBarButtonsToRemove: ['pan2d'],
           }}
+          revision={center.lat}
           onClick={(e) => {
             const point = e.points[0];
             if (point) {
@@ -172,8 +184,8 @@ export function ChloropethMap({
         <MapControls
           className={cls.mapControls}
           onResetMap={onResetMap}
-          onZoomIn={handleClickModbarBtn('Zoom in')}
-          onZoomOut={handleClickModbarBtn('Zoom out')}
+          onZoomIn={handleClickModbarBtn('zoomIn')}
+          onZoomOut={handleClickModbarBtn('zoomOut')}
         />
       )}
     </div>
