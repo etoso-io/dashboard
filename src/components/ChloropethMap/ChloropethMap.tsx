@@ -1,10 +1,11 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useMemo, useState, HTMLAttributes } from 'react';
 import cls from './styles.module.css';
 import Plot from 'react-plotly.js';
 import { CountryData, GeoCoords } from './types';
 import { CONTAINER_ID, DEFAULT_GEO_COORDS, DEFAULT_INDEXED_COUTRIES } from './constants';
 import geojson from './world-administrative-boundaries.json';
 import { MapControls } from '../MapControls/MapControls';
+import cn from 'classnames';
 
 type Props = {
   countryData: CountryData[];
@@ -12,7 +13,7 @@ type Props = {
   hasControls?: boolean;
   onCountryClick: (data: CountryData) => void;
   resetSelectedCountry: () => void;
-};
+} & HTMLAttributes<HTMLDivElement>;
 
 const handleClickModbarBtn = (name: string) => () => {
   const btn = document.querySelector(`[data-title="${name}"]`);
@@ -32,6 +33,8 @@ export function ChloropethMap({
   resetSelectedCountry,
   indexedCountries = DEFAULT_INDEXED_COUTRIES,
   hasControls = true,
+  className,
+  ...props
 }: Props) {
   const [center, setCenter] = useState<GeoCoords>(DEFAULT_GEO_COORDS);
   const [zoom, setZoom] = useState<number>(1);
@@ -61,7 +64,7 @@ export function ChloropethMap({
   };
 
   return (
-    <div className={cls.map}>
+    <div className={cn(cls.map, className)} {...props}>
       <div id={CONTAINER_ID} className={cls.wrapper} onClick={handleContainerClick}>
         <Plot
           onRelayout={(e) => {
